@@ -4,6 +4,7 @@ import cors from "cors";
 import databaseConnection from "../config/databaseConnection.js";
 import authRoutes from "../Routes/authRoutes.js";
 import userRoutes from "../Routes/userRoutes.js";
+import contactRoutes from "../Routes/contactRoutes.js";
 dotenv.config();
 const app = express();
 const whitelist = [
@@ -27,6 +28,7 @@ databaseConnection();
 //Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/contact", contactRoutes);
 
 const Port = process.env.PORT || 3001;
 app.listen(Port, () => {
