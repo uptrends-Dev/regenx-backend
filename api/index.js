@@ -8,7 +8,7 @@ import contactRoutes from "../Routes/contactRoutes.js";
 dotenv.config();
 const app = express();
 const whitelist = [
-  //   "https://upstays-frontend.vercel.app",
+    "https://www.regenx.bio/",
   "http://localhost:3000",
 ];
 const corsOptions = {
