@@ -1,7 +1,7 @@
 import Contact from "../models/contact.js";
 import catchAsync from "../helpers/catchAsync.js";
 import AppError from "../helpers/AppError.js";
-
+import { sendContactEmail } from "../helpers/email.js";
 // Create a new contact message (POST)
 const createContact = catchAsync(async (req, res, next) => {
   const { name, email, subject, message, phoneNumber } = req.body;
@@ -20,6 +20,24 @@ const createContact = catchAsync(async (req, res, next) => {
     message,
     phoneNumber,
   });
+  const contactForEmail = {
+    _id: newContact._id,
+    name,
+    email,
+    phone: phoneNumber,
+    subject,
+    message,
+  };
+  // Send notification email to support team (3 emails)
+  try {
+    await sendContactEmail({
+      contact: contactForEmail,
+      // Don't pass 'to' - will use the 3 support emails from env variables
+      subject: `New Contact Message from ${name}`,
+    });
+  } catch (err) {
+    console.error("sendContactEmail failed:", err);
+  }
 
   res.status(201).json({
     status: "success",
