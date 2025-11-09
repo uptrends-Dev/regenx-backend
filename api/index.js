@@ -5,6 +5,7 @@ import databaseConnection from "../config/databaseConnection.js";
 import authRoutes from "../Routes/authRoutes.js";
 import userRoutes from "../Routes/userRoutes.js";
 import contactRoutes from "../Routes/contactRoutes.js";
+import subscribtionRoutes from "../Routes/subscribtionRoutes.js";
 dotenv.config();
 const app = express();
 const whitelist = [
@@ -29,6 +30,7 @@ databaseConnection();
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/contact", contactRoutes);
+app.use("/api/subscribtion", subscribtionRoutes);
 
 const Port = process.env.PORT || 3001;
 app.listen(Port, () => {
