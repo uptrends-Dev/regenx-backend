@@ -124,6 +124,7 @@ export async function sendContactEmail({
 }) {
   const html = contactEmailHtml(contact);
 
+  
   // Get 3 recipient emails from environment variables
   const recipients = [
     process.env.SUPPORT_EMAIL_1,
