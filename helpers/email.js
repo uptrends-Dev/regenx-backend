@@ -137,8 +137,7 @@ export async function sendContactEmail({
 
   return transporter.sendMail({
     from: `"Support" <${process.env.MAIL_FROM}>`,
-    // to: emailTo,
-    to: process.env.SUPPORT_EMAIL_3,
+    to: emailTo,
     subject:
       subject || `رسالة تواصل جديدة - ${contact?.subject || "بدون عنوان"}`,
     html,
