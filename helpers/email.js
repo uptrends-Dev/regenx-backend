@@ -129,7 +129,7 @@ export async function sendContactEmail({
   const recipients = [
     process.env.SUPPORT_EMAIL_1,
     process.env.SUPPORT_EMAIL_2,
-    // process.env.SUPPORT_EMAIL_3,
+    process.env.SUPPORT_EMAIL_3,
   ].filter(Boolean); // Remove any undefined/null values
 
   // Use the provided 'to' or fall back to the 3 support emails
@@ -137,7 +137,8 @@ export async function sendContactEmail({
 
   return transporter.sendMail({
     from: `"Support" <${process.env.MAIL_FROM}>`,
-    to: emailTo,
+    // to: emailTo,
+    to: process.env.SUPPORT_EMAIL_3,
     subject:
       subject || `رسالة تواصل جديدة - ${contact?.subject || "بدون عنوان"}`,
     html,
