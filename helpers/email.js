@@ -127,8 +127,8 @@ export async function sendContactEmail({
   // Get 3 recipient emails from environment variables
   const recipients = [
     process.env.SUPPORT_EMAIL_1,
-    // process.env.SUPPORT_EMAIL_2,
-    // process.env.SUPPORT_EMAIL_3,
+    process.env.SUPPORT_EMAIL_2,
+    process.env.SUPPORT_EMAIL_3,
   ].filter(Boolean); // Remove any undefined/null values
 
   // Use the provided 'to' or fall back to the 3 support emails
