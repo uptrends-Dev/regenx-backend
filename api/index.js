@@ -9,7 +9,7 @@ import subscribtionRoutes from "../Routes/subscribtionRoutes.js";
 dotenv.config();
 const app = express();
 const whitelist = [
-    "https://www.regenx.bio/",
+    "https://www.regenx.bio",
   "http://localhost:3000",
 ];
 const corsOptions = {
